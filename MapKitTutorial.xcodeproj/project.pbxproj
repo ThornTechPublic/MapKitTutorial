@@ -12,6 +12,7 @@
 		FC1E24811C2B10F5009E9908 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC1E247F1C2B10F5009E9908 /* Main.storyboard */; };
 		FC1E24831C2B10F5009E9908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC1E24821C2B10F5009E9908 /* Assets.xcassets */; };
 		FC1E24861C2B10F5009E9908 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC1E24841C2B10F5009E9908 /* LaunchScreen.storyboard */; };
+		FCC472811C31DAD600E8FEEC /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC472801C31DAD600E8FEEC /* LocationSearchTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		FC1E24821C2B10F5009E9908 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC1E24851C2B10F5009E9908 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC1E24871C2B10F5009E9908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCC472801C31DAD600E8FEEC /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				FC1E247B1C2B10F5009E9908 /* AppDelegate.swift */,
 				FC1E247D1C2B10F5009E9908 /* ViewController.swift */,
 				FC1E247F1C2B10F5009E9908 /* Main.storyboard */,
+				FCC472801C31DAD600E8FEEC /* LocationSearchTable.swift */,
 				FC1E24821C2B10F5009E9908 /* Assets.xcassets */,
 				FC1E24841C2B10F5009E9908 /* LaunchScreen.storyboard */,
 				FC1E24871C2B10F5009E9908 /* Info.plist */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCC472811C31DAD600E8FEEC /* LocationSearchTable.swift in Sources */,
 				FC1E247E1C2B10F5009E9908 /* ViewController.swift in Sources */,
 				FC1E247C1C2B10F5009E9908 /* AppDelegate.swift in Sources */,
 			);
@@ -286,6 +290,7 @@
 				FC1E248C1C2B10F5009E9908 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
