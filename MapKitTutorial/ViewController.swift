@@ -20,7 +20,10 @@ class ViewController : UIViewController {
     var resultSearchController:UISearchController? = nil
     
     let locationManager = CLLocationManager()
+    
     @IBOutlet weak var mapView: MKMapView!
+    
+    @IBOutlet weak var searchBarContainerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +37,8 @@ class ViewController : UIViewController {
         let searchBar = resultSearchController!.searchBar
         searchBar.sizeToFit()
         searchBar.placeholder = "Search for places"
-        navigationItem.titleView = resultSearchController?.searchBar
+        searchBarContainerView.addSubview(searchBar)
+        // navigationItem.titleView = resultSearchController?.searchBar
         resultSearchController?.hidesNavigationBarDuringPresentation = false
         resultSearchController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
