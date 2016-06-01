@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC04FBA51CFF37220092CC6F /* SearchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC04FBA41CFF37220092CC6F /* SearchHistory.swift */; };
 		FC1E247C1C2B10F5009E9908 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E247B1C2B10F5009E9908 /* AppDelegate.swift */; };
 		FC1E247E1C2B10F5009E9908 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E247D1C2B10F5009E9908 /* ViewController.swift */; };
 		FC1E24811C2B10F5009E9908 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC1E247F1C2B10F5009E9908 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC04FBA41CFF37220092CC6F /* SearchHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHistory.swift; sourceTree = "<group>"; };
 		FC1E24781C2B10F5009E9908 /* MapKitTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapKitTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC1E247B1C2B10F5009E9908 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC1E247D1C2B10F5009E9908 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				FC1E247D1C2B10F5009E9908 /* ViewController.swift */,
 				FC1E247F1C2B10F5009E9908 /* Main.storyboard */,
 				FCC472801C31DAD600E8FEEC /* LocationSearchTable.swift */,
+				FC04FBA41CFF37220092CC6F /* SearchHistory.swift */,
 				FC1E24821C2B10F5009E9908 /* Assets.xcassets */,
 				FC1E24841C2B10F5009E9908 /* LaunchScreen.storyboard */,
 				FC1E24871C2B10F5009E9908 /* Info.plist */,
@@ -140,6 +143,7 @@
 			files = (
 				FCC472811C31DAD600E8FEEC /* LocationSearchTable.swift in Sources */,
 				FC1E247E1C2B10F5009E9908 /* ViewController.swift in Sources */,
+				FC04FBA51CFF37220092CC6F /* SearchHistory.swift in Sources */,
 				FC1E247C1C2B10F5009E9908 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
