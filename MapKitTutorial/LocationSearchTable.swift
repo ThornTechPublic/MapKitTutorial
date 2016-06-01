@@ -105,17 +105,7 @@ extension LocationSearchTable {
         switch indexPath.section {
         case 0:
             let selectedSearchTerm = findMatchingStrings()[indexPath.row]
-            let request = MKLocalSearchRequest()
-            request.naturalLanguageQuery = selectedSearchTerm
-            request.region = mapView!.region
-            let search = MKLocalSearch(request: request)
-            search.startWithCompletionHandler { response, _ in
-                guard let response = response else {
-                    return
-                }
-                self.matchingItems = response.mapItems
-                self.tableView.reloadData()
-            }
+            handleMapSearchDelegate?.setSearchBarText(selectedSearchTerm)
         default:
             let selectedItem = matchingItems[indexPath.row].placemark
             handleMapSearchDelegate?.dropPinZoomIn(selectedItem)

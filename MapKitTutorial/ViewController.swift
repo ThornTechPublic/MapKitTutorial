@@ -11,6 +11,7 @@ import MapKit
 
 protocol HandleMapSearch {
     func dropPinZoomIn(placemark:MKPlacemark)
+    func setSearchBarText(text: String)
 }
 
 class ViewController : UIViewController {
@@ -88,6 +89,10 @@ extension ViewController: HandleMapSearch {
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegionMake(placemark.coordinate, span)
         mapView.setRegion(region, animated: true)
+    }
+    
+    func setSearchBarText(text: String) {
+        resultSearchController?.searchBar.text = text
     }
 }
 
