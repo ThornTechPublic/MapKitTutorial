@@ -12,9 +12,9 @@ import MapKit
 class LocationSearchTable: UITableViewController {
     
     
-    weak var handleMapSearchDelegate: HandleMapSearch? = nil
+    weak var handleMapSearchDelegate: HandleMapSearch?
     var matchingItems: [MKMapItem] = []
-    var mapView: MKMapView? = nil
+    var mapView: MKMapView?
     
     
     func parseAddress(selectedItem:MKPlacemark) -> String {

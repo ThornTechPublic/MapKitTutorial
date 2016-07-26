@@ -15,12 +15,13 @@ protocol HandleMapSearch: class {
 
 class ViewController: UIViewController {
     
-    var selectedPin: MKPlacemark? = nil
-    
-    var resultSearchController: UISearchController? = nil
+    var selectedPin: MKPlacemark?
+    var resultSearchController: UISearchController!
     
     let locationManager = CLLocationManager()
+    
     @IBOutlet weak var mapView: MKMapView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +32,13 @@ class ViewController: UIViewController {
         locationManager.requestLocation()
         let locationSearchTable = storyboard!.instantiateViewControllerWithIdentifier("LocationSearchTable") as! LocationSearchTable
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
-        resultSearchController?.searchResultsUpdater = locationSearchTable
+        resultSearchController.searchResultsUpdater = locationSearchTable
         let searchBar = resultSearchController!.searchBar
         searchBar.sizeToFit()
         searchBar.placeholder = "Search for places"
         navigationItem.titleView = resultSearchController?.searchBar
-        resultSearchController?.hidesNavigationBarDuringPresentation = false
-        resultSearchController?.dimsBackgroundDuringPresentation = true
+        resultSearchController.hidesNavigationBarDuringPresentation = false
+        resultSearchController.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
         locationSearchTable.mapView = mapView
         locationSearchTable.handleMapSearchDelegate = self
