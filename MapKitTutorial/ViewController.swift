@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-protocol HandleMapSearch {
+protocol HandleMapSearch: class {
     func dropPinZoomIn(placemark:MKPlacemark)
 }
 
@@ -75,6 +75,7 @@ extension ViewController : CLLocationManagerDelegate {
 }
 
 extension ViewController: HandleMapSearch {
+    
     func dropPinZoomIn(placemark: MKPlacemark){
         // cache the pin
         selectedPin = placemark
@@ -94,6 +95,7 @@ extension ViewController: HandleMapSearch {
         let region = MKCoordinateRegionMake(placemark.coordinate, span)
         mapView.setRegion(region, animated: true)
     }
+    
 }
 
 extension ViewController : MKMapViewDelegate {
