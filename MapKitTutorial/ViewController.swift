@@ -13,11 +13,11 @@ protocol HandleMapSearch {
     func dropPinZoomIn(placemark:MKPlacemark)
 }
 
-class ViewController : UIViewController {
+class ViewController: UIViewController {
     
-    var selectedPin:MKPlacemark? = nil
+    var selectedPin: MKPlacemark? = nil
     
-    var resultSearchController:UISearchController? = nil
+    var resultSearchController: UISearchController? = nil
     
     let locationManager = CLLocationManager()
     @IBOutlet weak var mapView: MKMapView!
@@ -45,7 +45,7 @@ class ViewController : UIViewController {
     func getDirections(){
         if let selectedPin = selectedPin {
             let mapItem = MKMapItem(placemark: selectedPin)
-            let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+            let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
             mapItem.openInMapsWithLaunchOptions(launchOptions)
         }
     }
@@ -72,7 +72,7 @@ extension ViewController : CLLocationManagerDelegate {
 }
 
 extension ViewController: HandleMapSearch {
-    func dropPinZoomIn(placemark:MKPlacemark){
+    func dropPinZoomIn(placemark: MKPlacemark){
         // cache the pin
         selectedPin = placemark
         // clear existing pins

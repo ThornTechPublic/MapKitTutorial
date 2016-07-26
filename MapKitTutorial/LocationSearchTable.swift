@@ -9,9 +9,9 @@
 import UIKit
 import MapKit
 
-class LocationSearchTable : UITableViewController {
-    var handleMapSearchDelegate:HandleMapSearch? = nil
-    var matchingItems:[MKMapItem] = []
+class LocationSearchTable: UITableViewController {
+    var handleMapSearchDelegate: HandleMapSearch? = nil
+    var matchingItems: [MKMapItem] = []
     var mapView: MKMapView? = nil
     
     func parseAddress(selectedItem:MKPlacemark) -> String {
