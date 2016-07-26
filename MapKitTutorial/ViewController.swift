@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
@@ -40,6 +41,7 @@ class ViewController: UIViewController {
         definesPresentationContext = true
         locationSearchTable.mapView = mapView
         locationSearchTable.handleMapSearchDelegate = self
+        
     }
     
     func getDirections(){
@@ -52,6 +54,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController : CLLocationManagerDelegate {
+    
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .AuthorizedWhenInUse {
             locationManager.requestLocation()
@@ -80,10 +83,12 @@ extension ViewController: HandleMapSearch {
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
         annotation.title = placemark.name
+        
         if let city = placemark.locality,
             let state = placemark.administrativeArea {
                 annotation.subtitle = "\(city) \(state)"
         }
+        
         mapView.addAnnotation(annotation)
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegionMake(placemark.coordinate, span)
@@ -92,11 +97,14 @@ extension ViewController: HandleMapSearch {
 }
 
 extension ViewController : MKMapViewDelegate {
+    
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?{
+        
         if annotation is MKUserLocation {
             //return nil so map view draws "blue dot" for standard user location
             return nil
         }
+        
         let reuseId = "pin"
         var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
         pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
@@ -107,6 +115,7 @@ extension ViewController : MKMapViewDelegate {
         button.setBackgroundImage(UIImage(named: "car"), forState: .Normal)
         button.addTarget(self, action: "getDirections", forControlEvents: .TouchUpInside)
         pinView?.leftCalloutAccessoryView = button
+        
         return pinView
     }
 }
