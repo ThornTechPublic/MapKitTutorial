@@ -9,18 +9,28 @@
 import UIKit
 import MapKit
 
-class LocationSearchTable : UITableViewController {
-    var handleMapSearchDelegate:HandleMapSearch? = nil
-    var matchingItems:[MKMapItem] = []
-    var mapView: MKMapView? = nil
+class LocationSearchTable: UITableViewController {
+    
+    
+    weak var handleMapSearchDelegate: HandleMapSearch?
+    var matchingItems: [MKMapItem] = []
+    var mapView: MKMapView?
+    
     
     func parseAddress(selectedItem:MKPlacemark) -> String {
+        
         // put a space between "4" and "Melrose Place"
-        let firstSpace = (selectedItem.subThoroughfare != nil && selectedItem.thoroughfare != nil) ? " " : ""
+        let firstSpace = (selectedItem.subThoroughfare != nil &&
+                            selectedItem.thoroughfare != nil) ? " " : ""
+        
         // put a comma between street and city/state
-        let comma = (selectedItem.subThoroughfare != nil || selectedItem.thoroughfare != nil) && (selectedItem.subAdministrativeArea != nil || selectedItem.administrativeArea != nil) ? ", " : ""
+        let comma = (selectedItem.subThoroughfare != nil || selectedItem.thoroughfare != nil) &&
+                    (selectedItem.subAdministrativeArea != nil || selectedItem.administrativeArea != nil) ? ", " : ""
+        
         // put a space between "Washington" and "DC"
-        let secondSpace = (selectedItem.subAdministrativeArea != nil && selectedItem.administrativeArea != nil) ? " " : ""
+        let secondSpace = (selectedItem.subAdministrativeArea != nil &&
+                            selectedItem.administrativeArea != nil) ? " " : ""
+        
         let addressLine = String(
             format:"%@%@%@%@%@%@%@",
             // street number
@@ -35,18 +45,23 @@ class LocationSearchTable : UITableViewController {
             // state
             selectedItem.administrativeArea ?? ""
         )
+        
         return addressLine
     }
+    
 }
 
 extension LocationSearchTable : UISearchResultsUpdating {
+    
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         guard let mapView = mapView,
             let searchBarText = searchController.searchBar.text else { return }
+        
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = searchBarText
         request.region = mapView.region
         let search = MKLocalSearch(request: request)
+        
         search.startWithCompletionHandler { response, _ in
             guard let response = response else {
                 return
@@ -54,10 +69,13 @@ extension LocationSearchTable : UISearchResultsUpdating {
             self.matchingItems = response.mapItems
             self.tableView.reloadData()
         }
+        
     }
+    
 }
 
 extension LocationSearchTable {
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return matchingItems.count
     }
@@ -69,12 +87,15 @@ extension LocationSearchTable {
         cell.detailTextLabel?.text = parseAddress(selectedItem)
         return cell
     }
+    
 }
 
 extension LocationSearchTable {
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedItem = matchingItems[indexPath.row].placemark
         handleMapSearchDelegate?.dropPinZoomIn(selectedItem)
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
 }
