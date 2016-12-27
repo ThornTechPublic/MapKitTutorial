@@ -103,17 +103,18 @@ extension ViewController : MKMapViewDelegate {
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?{
         
         guard !(annotation is MKUserLocation) else { return nil }
-        
         let reuseId = "pin"
-        guard let pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView else { return nil }
-        
-        pinView.pinTintColor = UIColor.orangeColor()
-        pinView.canShowCallout = true
+        var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+        }
+        pinView?.pinTintColor = UIColor.orangeColor()
+        pinView?.canShowCallout = true
         let smallSquare = CGSize(width: 30, height: 30)
         let button = UIButton(frame: CGRect(origin: CGPointZero, size: smallSquare))
         button.setBackgroundImage(UIImage(named: "car"), forState: .Normal)
         button.addTarget(self, action: #selector(ViewController.getDirections), forControlEvents: .TouchUpInside)
-        pinView.leftCalloutAccessoryView = button
+        pinView?.leftCalloutAccessoryView = button
         
         return pinView
     }
